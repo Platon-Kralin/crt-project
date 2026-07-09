@@ -1,11 +1,22 @@
+import json
 import random
+import urllib.request
 
-WORDS = ["python", "hangman", "computer", "keyboard", "developer", "adobe", "programming"]
+FALLBACK_WORDS = ["python", "hangman", "computer", "keyboard", "developer", "adobe", "programming"]
 MAX_WRONG = 6
 
 
+def get_random_word():
+    try:
+        with urllib.request.urlopen("https://random-word-api.herokuapp.com/word", timeout=5) as response:
+            data = json.load(response)
+            return data[0].lower()
+    except Exception:
+        return random.choice(FALLBACK_WORDS)
+
+
 def play():
-    word = random.choice(WORDS)
+    word = get_random_word()
     guessed = set()
     wrong = 0
 
