@@ -17,7 +17,7 @@ def get_random_word():
     with open("words.txt") as words:
         for line in words:
             if "'" not in line and "-" not in line:
-                wordlist.append(line.upper().strip());
+                wordlist.append(line.lower().strip());
    
     return random.choice(wordlist)
 #     try:
@@ -30,7 +30,7 @@ def get_random_word():
 
 
 def play():
-    word = get_random_word()
+    word = get_random_word().lower()
     guessed = set()
     wrong = 0
 
