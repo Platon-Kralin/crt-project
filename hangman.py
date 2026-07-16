@@ -1,25 +1,26 @@
-import random;
+import random
 import json
 import random
 #import urllib.request
 
 
-print("Welcome to Hangman!");
+print("Welcome to Hangman!")
 
-wordlist = [];
+wordlist = []
 
 FALLBACK_WORDS = ["python", "hangman", "computer", "keyboard", "developer", "adobe", "programming"]
 MAX_WRONG = 6
 
  
 def get_random_word():
-    wordlist = [];
+    wordlist = []
     with open("words.txt") as words:
         for line in words:
             if "'" not in line and "-" not in line:
-                wordlist.append(line.lower().strip());
+                wordlist.append(line.lower().strip())
    
     return random.choice(wordlist)
+# Former Online Code:
 #     try:
 #         with urllib.request.urlopen("https://random-word-api.herokuapp.com/word",\
 #            timeout=5) as response:
