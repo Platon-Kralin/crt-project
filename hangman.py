@@ -7,7 +7,7 @@ import random
 #import urllib.request
 
 
-print("Welcome to Hangman!")
+print("Welcome to Hangman!\n(enter 'help' to see previous guesses!)")
 
 wordlist = []
 
@@ -34,7 +34,8 @@ def get_random_word():
 
 
 def play():
-    word = get_random_word().lower()
+    #word = get_random_word().lower()
+    word = "python"
     guessed = set()
     wrong = 0
 
@@ -47,10 +48,27 @@ def play():
             print("\nYou win! The word was:", word)
             return
 
-        guess = input("Guess a letter: ").lower().strip()
+        guess = input("Guess a letter (or the word itself!): ").lower().strip()
+        
+        if guess == "help":
+            print(f"Previous Guesses: {guessed}.")
+            continue
+        
+        if len(guess) == len(word) and guess.isalpha():
+            if guess == word:
+                print(f"You Win! The word was: {word.title()}!")
+                return
+            else:
+                if guess in guessed:
+                    print(f"You already guessed '{guess.title()}'!")
+                    continue
+                print(f"{guess.title()} was wrong, try again!")
+                wrong += 1
+                guessed.add(guess)
+                continue
 
         if len(guess) != 1 or not guess.isalpha():
-            print("Please enter a single letter.")
+            print("Please enter a single letter or the full word!")
             continue
 
         if guess in guessed:
@@ -65,7 +83,7 @@ def play():
         else:
             print(f"Good guess! '{guess}' is in the word.")
 
-    print(f"\nYou lose! The word was: {word}")
+    print(f"\nYou lose! The word was: {word.title()}")
 
 
 if __name__ == "__main__":
