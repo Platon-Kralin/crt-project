@@ -34,8 +34,7 @@ def get_random_word():
 
 
 def play():
-    #word = get_random_word().lower()
-    word = "python"
+    word = get_random_word().lower()
     guessed = set()
     wrong = 0
 
