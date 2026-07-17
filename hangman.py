@@ -1,3 +1,5 @@
+# By Platon Kralin, Sanjay Vellore, Ishanvi Deodhar, Emily Cheng, Sara Juneja.
+
 import random
 import json
 import random
