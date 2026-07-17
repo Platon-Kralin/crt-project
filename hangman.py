@@ -1,4 +1,5 @@
 # By Platon Kralin, Sanjay Vellore, Ishanvi Deodhar, Emily Cheng, Sara Juneja.
+# Git repo at: https://github.com/Platon-Kralin/crt-project/
 
 import random
 import json
