@@ -4,3 +4,5 @@ made for ASDRP computer-resources training 2026
 
 Publically licensed under Apache-2.0.
 words-list public domain from: https://github.com/dwyl/english-words/tree/master
+
+/test for personal pull access/
